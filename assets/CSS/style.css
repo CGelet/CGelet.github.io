@@ -1,3 +1,14 @@
+body {
+  margin: 0%;
+  padding: 0%;
+  font-family: Arial, Helvetica, sans-serif;
+  background-image: url("../REF/Background.jpg");
+  background-size: cover, auto 100%;
+  background-repeat: no-repeat;
+  background-position: top center;
+  background-attachment: fixed;
+}
+
 .navbar {
   background-color: rgba(128, 128, 128, 0.45);
   -webkit-backdrop-filter: blur(15px);
@@ -12,6 +23,10 @@
   top: 0;
   width: 100%;
   transition: 0.4s;
+}
+
+.navbar .icon {
+  display: none;
 }
 
 .logowrap {
@@ -79,13 +94,73 @@
   width: 100%;
 }
 
-body {
-  margin: 0%;
-  padding: 0%;
-  font-family: Arial, Helvetica, sans-serif;
-  background-image: url("../REF/Background.jpg");
-  background-size: 100%;
-  background-repeat: no-repeat;
-  background-position: top center;
-  background-attachment: fixed;
-} /*# sourceMappingURL=style.css.map */
+#open-button {
+  display: none;
+}
+
+@media (max-width: 800px) {
+  .navbar .nav-items:not(:first-child) {
+    display: none;
+  }
+  #open-button {
+    display: block;
+  }
+}
+.sidebar-nav {
+  background-color: rgba(128, 128, 128, 0.45);
+  display: none;
+  margin: 0;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  right: 0;
+  transform: translateX(100%); /* Move off-screen */
+  height: 100vh;
+  width: 200px;
+  box-shadow: -10px 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  transition: transform 0.6s ease; /* Transition the right property */
+}
+
+.sidebar-nav.active {
+  transform: translateX(0); /* Move on-screen */
+}
+
+.sidebar-nav::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: -1; /* Move the pseudo-element behind the sidebar content */
+  -webkit-backdrop-filter: blur(15px);
+          backdrop-filter: blur(15px);
+}
+
+.sidebar-list {
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  list-style-type: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.sidebar-list .nav-items {
+  flex-direction: column;
+  margin: 20px;
+  align-items: center;
+}
+
+.sidebar-list .icon {
+  flex-direction: column;
+  align-items: center;
+  font-size: 30px;
+  color: black;
+  width: 100%;
+  display: flex;
+  text-decoration: none;
+}/*# sourceMappingURL=style.css.map */

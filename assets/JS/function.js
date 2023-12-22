@@ -10,3 +10,19 @@ function scrollFunction() {
     document.getElementById("logowrap").style.fontSize = "30px";
   }
 }
+
+function onClickOpen() {
+  var sidebarNav = document.getElementById("sidebar-nav");
+  sidebarNav.style.display = 'block';
+  setTimeout(function () {
+    sidebarNav.classList.add("active");
+  }, 10); // Adding a small delay for display to take effect
+}
+
+function onClickClose() {
+  var sidebarNav = document.getElementById("sidebar-nav");
+  sidebarNav.classList.remove("active");
+  setTimeout(function () {
+    sidebarNav.style.display = 'none';
+  }, 400); // Delaying hiding to allow for the transition to complete
+}
